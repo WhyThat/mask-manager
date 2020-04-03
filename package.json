@@ -1,0 +1,34 @@
+{
+  "private": true,
+  "name": "mask-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "lerna run build",
+    "start": "lerna run --parallel start",
+    "server": "lerna run --stream server",
+    "clean": "lerna run clean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WhyThat/mask-manager.git"
+  },
+  "keywords": [
+    "mask",
+    "covid",
+    "management"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WhyThat/mask-manager/issues"
+  },
+  "homepage": "https://github.com/WhyThat/mask-manager#readme",
+  "workspaces": [
+    "front"
+  ],
+  "devDependencies": {
+    "lerna": "^3.20.2"
+  }
+}
