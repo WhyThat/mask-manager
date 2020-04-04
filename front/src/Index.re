@@ -11,8 +11,6 @@ let makeContainer = () => {
 };
 
 ReactDOMRe.render(
-  <Root>
-    {React.string("Hello!")}
-  </Root>,
+  <Root />,
   makeContainer(),
 );

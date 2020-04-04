@@ -1,6 +1,6 @@
 [@react.component]
-let make = (~children) => (
+let make = () => (
   <ApolloHooks.Provider client=Client.instance>
-    {children}
+    <App />
   </ApolloHooks.Provider>
 )
