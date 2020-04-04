@@ -7,16 +7,16 @@ let make = () =>
         <Typography variant=`H1 gutterBottom=true>
           {React.string("Bienvenue")}
         </Typography>
-        <MaskManager.Link target={Routing.PrinterHome}>
+        <RouteLink target={Routing.PrinterHome}>
           <Button variant=`Contained color=`Primary>
             {React.string("Je veux imprimer")}
           </Button>
-        </MaskManager.Link>
-        <MaskManager.Link target={Routing.PrinterHome}>
+        </RouteLink>
+        <RouteLink target={Routing.PrinterHome}>
           <Button variant=`Contained color=`Primary>
             {React.string("Je veux commander")}
           </Button>
-        </MaskManager.Link>
+        </RouteLink>
       </Grid>
     </Grid>
   );

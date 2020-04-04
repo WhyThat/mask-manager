@@ -12,6 +12,7 @@ let materialUi = ((), ()) => {
     </Paper>
   );
 };
-let graphQl = () => <TestGraphql />
+
+let graphQl = () => <ApolloHooks.Provider client=Client.instance><TestGraphql /></ApolloHooks.Provider>;
 
 let default = story("Test");
