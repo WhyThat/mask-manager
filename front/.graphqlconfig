@@ -1,0 +1,19 @@
+{
+  "schemaPath": "./graphql_schema.json",
+  "projects": {
+    "backend":{
+      "name": "Backend",
+      "schemaPath": "./graphql_schema.json"
+    }
+  },
+  "extensions": {
+    "endpoints": {
+      "staging": {
+        "url": "https://mask-manager-back-staging.herokuapp.com/v1/graphql",
+        "headers": {
+          "x-hasura-access-key": "JeSuisMaskManager1234"
+        }
+      }
+    }
+  }
+}

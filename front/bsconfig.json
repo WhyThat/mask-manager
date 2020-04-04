@@ -24,5 +24,6 @@
     "reason-apollo-hooks",
     "@jsiebern/bs-material-ui"
   ],
+  "ppx-flags": ["@baransu/graphql_ppx_re/ppx"],
   "refmt": 3
 }
