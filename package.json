@@ -26,7 +26,8 @@
   },
   "homepage": "https://github.com/WhyThat/mask-manager#readme",
   "workspaces": [
-    "front"
+    "front",
+    "storybook"
   ],
   "devDependencies": {
     "lerna": "^3.20.2"

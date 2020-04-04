@@ -1,0 +1,35 @@
+{
+    "name": "storybook",
+    "version": "1.0.0",
+    "description": "",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ArteGEIE/ARTE-LiveStyleguide.git"
+    },
+    "scripts": {
+        "start": "start-storybook -c . -p 6007",
+        "build": "build-storybook -c . -o ../storybook-static"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ArteGEIE/ARTE-LiveStyleguide/issues"
+    },
+    "homepage": "https://github.com/ArteGEIE/ARTE-LiveStyleguide#readme",
+    "dependencies": {
+        "@babel/core": "^7.9.0",
+        "@storybook/addon-actions": "^5.3.18",
+        "@storybook/addon-knobs": "^5.3.18",
+        "@storybook/addon-links": "^5.3.18",
+        "@storybook/addons": "^5.1.10",
+        "@storybook/react": "^5.3.18",
+        "babel-jest": "^24.1.0",
+        "babel-loader": "^8.0.6",
+        "markdown-loader": "^5.1.0",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "regenerator-runtime": "^0.13.5",
+        "webpack": "^4.42.1"
+    },
+    "devDependencies": {}
+}
