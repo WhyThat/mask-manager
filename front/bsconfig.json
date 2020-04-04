@@ -20,6 +20,7 @@
   "namespace": true,
   "bs-dependencies": [
     "reason-react",
+    "reason-apollo",
     "@jsiebern/bs-material-ui"
   ],
   "refmt": 3
