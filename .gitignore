@@ -107,12 +107,4 @@ dist
 tags
 tags.*
 
-# .DS_Store
-# .merlin
-# .bsb.lock
-# npm-debug.log
-# /lib/bs/
-# /node_modules/
-# /bundleOutput/
-
 storybook-static
