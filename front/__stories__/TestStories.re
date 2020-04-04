@@ -12,6 +12,6 @@ let materialUi = ((), ()) => {
     </Paper>
   );
 };
-let graphQl = () => <Root><TestGraphql /></Root>
+let graphQl = () => <TestGraphql />
 
 let default = story("Test");
