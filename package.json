@@ -5,7 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "lerna run build",
+    "build": "lerna run --scope front build",
+    "postbuild": "yarn workspace storybook build",
     "start": "lerna run --parallel start",
     "server": "lerna run --stream server",
     "clean": "lerna run clean"
@@ -26,7 +27,8 @@
   },
   "homepage": "https://github.com/WhyThat/mask-manager#readme",
   "workspaces": [
-    "front"
+    "front",
+    "storybook"
   ],
   "devDependencies": {
     "lerna": "^3.20.2"

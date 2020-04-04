@@ -3,10 +3,14 @@
   "reason": {
     "react-jsx": 3
   },
-  "sources": {
+  "sources": [{
     "dir" : "src",
     "subdirs" : true
   },
+  {
+    "dir" : "__stories__",
+    "subdirs" : true
+  }],
   "bsc-flags": ["-bs-super-errors", "-bs-no-version-header"],
   "package-specs": [{
     "module": "commonjs",
