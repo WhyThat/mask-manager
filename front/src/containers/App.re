@@ -11,11 +11,11 @@ let make = () => {
         </Toolbar>
       </AppBar>
       {switch (route) {
-        | Home => <div />
+        | Home => <Home />
         | CustomerRegister => <div />
         | PrinterRegister => <div />
-        | OrderStatus(string) => <div />
-        | PrintingEdit(string) => <div />
+        | OrderStatus(orderId) => <div />
+        | PrintingEdit(printingId) => <div />
         | PrinterHome => <div />
         | PrintingList => <div />
         | PrintersList => <div />
