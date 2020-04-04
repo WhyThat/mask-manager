@@ -114,3 +114,5 @@ tags.*
 # /lib/bs/
 # /node_modules/
 # /bundleOutput/
+
+storybook-static
