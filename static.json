@@ -1,0 +1,5 @@
+{
+  "root": "front/dist/",
+  "clean_urls": true
+}
+
