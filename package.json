@@ -5,7 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "lerna run build",
+    "build": "lerna run --scope front build",
+    "postbuild": "yarn workspace storybook build",
     "start": "lerna run --parallel start",
     "server": "lerna run --stream server",
     "clean": "lerna run clean"
