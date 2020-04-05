@@ -12,7 +12,7 @@ let make = () =>
             {React.string("Je veux imprimer")}
           </Button>
         </RouteLink>
-        <RouteLink target={Routing.PrinterHome}>
+        <RouteLink target={Routing.CustomerRegister}>
           <Button variant=`Contained color=`Primary>
             {React.string("Je veux commander")}
           </Button>

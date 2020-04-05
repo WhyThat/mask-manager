@@ -60,15 +60,20 @@ module AddCustomerMutation = [%graphql
   |}
 ];
 
-let useAddCustomerMutation = () => useMutation(AddCustomerMutation.definition);
+let useAddCustomerMutation = () =>
+  useMutation(AddCustomerMutation.definition);
 
 module AddOrderMutation = [%graphql
   {|
     mutation AddOrder(
       $count: Int!,
+      $customerId: uuid!,
+      $productId: uuid!,
     ) {
       insert_order(objects: {
         count: $count,
+        customerId: $customerId,
+        productId: $productId,
       }) {
         returning {
           id
@@ -106,7 +111,8 @@ module AddPrintingMutation = [%graphql
   |}
 ];
 
-let useAddPrintingMutation = () => useMutation(AddPrintingMutation.definition);
+let useAddPrintingMutation = () =>
+  useMutation(AddPrintingMutation.definition);
 
 module UpdatePrintingMutation = [%graphql
   {|
@@ -130,7 +136,8 @@ module UpdatePrintingMutation = [%graphql
   |}
 ];
 
-let useUpdatePrintingMutation = () => useMutation(UpdatePrintingMutation.definition);
+let useUpdatePrintingMutation = () =>
+  useMutation(UpdatePrintingMutation.definition);
 
 module DeletePrintingMutation = [%graphql
   {|
@@ -144,4 +151,5 @@ module DeletePrintingMutation = [%graphql
   |}
 ];
 
-let useDeletePrintingMutation = () => useMutation(DeletePrintingMutation.definition);
+let useDeletePrintingMutation = () =>
+  useMutation(DeletePrintingMutation.definition);
