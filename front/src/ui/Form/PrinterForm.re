@@ -68,7 +68,7 @@ let make = (~target="_self") => {
         label={"Nombre d'imprimantes"->React.string}
         type_="number"
       />
-      <Button variant=`Contained type_="Submit">
+      <Button variant=`Contained type_="submit">
         "Valider"->React.string
       </Button>
     </form>

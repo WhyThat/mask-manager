@@ -38,14 +38,14 @@ module AddCustomerMutation = [%graphql
       $lastName: String!,
       $email: String!,
       $phoneNumber: String!,
-      $type: String!
+      $type_: String!
     ) {
       insert_customer(objects: {
         firstName: $firstName,
         lastName: $lastName,
         email: $email,
         phoneNumber: $phoneNumber,
-        type: $type,
+        type: $type_,
       }) {
         returning {
           id
@@ -66,9 +66,11 @@ module AddOrderMutation = [%graphql
   {|
     mutation AddOrder(
       $count: Int!,
+      $customerId: uuid!
     ) {
       insert_order(objects: {
         count: $count,
+        customerId: $customerId,
       }) {
         returning {
           id
