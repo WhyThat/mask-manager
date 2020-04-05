@@ -3,7 +3,7 @@ open Storybook;
 let registerCustomer = () => {
   <ApolloHooks.Provider client=Client.instance>
     <div style={ReactDOMRe.Style.make(~width="300px", ())}>
-      <CustomerForm />
+      <CustomerForm title="customer form"/>
     </div>
   </ApolloHooks.Provider>;
 };

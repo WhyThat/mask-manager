@@ -12,7 +12,7 @@ let make = () => {
       </AppBar>
       {switch (route) {
        | Home => <Home />
-       | CustomerRegister => <div />
+       | CustomerRegister => <CustomerRegister />
        | PrinterRegister => <PrinterRegister />
        | OrderStatus(orderId) => <div />
        | PrintingEdit(printingId) => <div />

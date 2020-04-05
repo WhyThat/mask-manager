@@ -9,7 +9,7 @@ let getIdFromGraphQl = obj =>
   obj##returning->Belt.Array.get(0) <$> (obj => obj##id);
 
 [@react.component]
-let make = (~target="_self") => {
+let make = (~target="_self", ~title) => {
   let (firstName, setFirstName) = React.useState(() => "");
   let (lastName, setLastName) = React.useState(() => "");
   let (email, setEmail) = React.useState(() => "");
@@ -90,62 +90,85 @@ let make = (~target="_self") => {
   };
 
   MaterialUi.(
-    <form autoComplete="off" style=formStyle onSubmit=handleSubmit>
-      <FormInput
-        value={`String(firstName)}
-        onChange=setFirstName
-        id="firstName"
-        label={"Nom"->React.string}
-      />
-      <FormInput
-        onChange=setLastName
-        value={`String(lastName)}
-        id="lastName"
-        label={"Prenom"->React.string}
-      />
-      <FormInput
-        onChange=setEmail
-        value={`String(email)}
-        type_="email"
-        id="email"
-        label={"Email"->React.string}
-      />
-      <FormInput
-        onChange=setPhoneNumber
-        value={`String(phoneNumber)}
-        id="phoneNumber"
-        label={"Telephone"->React.string}
-        type_="phone"
-      />
-      <FormInput
-        onChange=setCustomerType
-        value={`String(customerType)}
-        id="customerType"
-        label={"Profession"->React.string}
-        type_="phone"
-      />
-      <FormInput
-        onChange=setNbMask
-        value={`Int(nbMask)}
-        id="nbMask"
-        label={"Nombre de masques"->React.string}
-        type_="number"
-      />
-      {switch (customerStatus, orderStatus) {
-       | (NotCalled, _) =>
-         <Button variant=`Contained type_="submit">
-           "Valider"->React.string
-         </Button>
-       | (Loading, _) =>
-         React.string({j|Création du compte utilisateur ...|j})
-       | (Data(_), NotCalled | Loading) =>
-         React.string({j| Création de la commande ...|j})
-       | (Data(_), Data(_)) =>
-         React.string(
-           {j|La commande a été enregistré, vous allez etre redirigé ...|j},
-         )
-       | _ => React.string("Troubles ")
-       }}
-    </form>
+    <Card>
+      <form autoComplete="off" style=formStyle onSubmit=handleSubmit>
+        <CardContent>
+          <Typography gutterBottom=true variant=`H5>
+            {React.string(title)}
+          </Typography>
+          <Grid container=true spacing=V3>
+            <Grid item=true md=V6 xs=V12>
+              <FormInput
+                value={`String(firstName)}
+                onChange=setFirstName
+                id="firstName"
+                label={"Nom"->React.string}
+              />
+            </Grid>
+            <Grid item=true md=V6 xs=V12>
+              <FormInput
+                onChange=setLastName
+                value={`String(lastName)}
+                id="lastName"
+                label={"Prenom"->React.string}
+              />
+            </Grid>
+            <Grid item=true md=V6 xs=V12>
+              <FormInput
+                onChange=setEmail
+                value={`String(email)}
+                type_="email"
+                id="email"
+                label={"Email"->React.string}
+              />
+            </Grid>
+            <Grid item=true md=V6 xs=V12>
+              <FormInput
+                onChange=setPhoneNumber
+                value={`String(phoneNumber)}
+                id="phoneNumber"
+                label={"Telephone"->React.string}
+                type_="phone"
+              />
+            </Grid>
+            <Grid item=true md=V6 xs=V12>
+              <FormInput
+                onChange=setCustomerType
+                value={`String(customerType)}
+                id="customerType"
+                label={"Profession"->React.string}
+                type_="phone"
+              />
+            </Grid>
+            <Grid item=true md=V6 xs=V12>
+              <FormInput
+                onChange=setNbMask
+                value={`Int(nbMask)}
+                id="nbMask"
+                label={"Nombre de masques"->React.string}
+                type_="number"
+              />
+            </Grid>
+          </Grid>
+        </CardContent>
+        <CardActions>
+          {switch (customerStatus, orderStatus) {
+           | (NotCalled, _) =>
+             <Button variant=`Contained type_="submit">
+               "Valider"->React.string
+             </Button>
+           | (Loading, _) =>
+             React.string({j|Création du compte utilisateur ...|j})
+           | (Data(_), NotCalled | Loading) =>
+             React.string({j| Création de la commande ...|j})
+           | (Data(_), Data(_)) =>
+             React.string(
+               {j|La commande a été enregistré, vous allez etre redirigé ...|j},
+             )
+           | _ => React.string("Troubles ")
+           }}
+        </CardActions>
+      </form>
+    </Card>
   );
 };
