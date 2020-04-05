@@ -4,39 +4,66 @@ let formStyle =
 let preventDefault = ReactEvent.Synthetic.preventDefault;
 
 [@react.component]
-let make = (~target="_self", ~onSubmit) => {
-  let (firstName, setFirstName) = React.useState(() => `String(""));
-  let (lastName, setLastName) = React.useState(() => `String(""));
-  let (email, setEmail) = React.useState(() => `String(""));
-  let (phoneNumber, setPhoneNumber) = React.useState(() => `String(""));
-  let (nbPrinters, setNbPrinters) = React.useState(() => `Int(0));
+let make = (~target="_self") => {
+  let (firstName, setFirstName) = React.useState(() => "");
+  let (lastName, setLastName) = React.useState(() => "");
+  let (email, setEmail) = React.useState(() => "");
+  let (phoneNumber, setPhoneNumber) = React.useState(() => "");
+  let (printerCount, setNbPrinters) = React.useState(() => 0);
+  let (addPrinter, _, _) = Mutations.useAddPrinterMutation();
 
   let handleSubmit = evt => {
     preventDefault(evt);
-    Js.log(evt);
-    onSubmit();
+    addPrinter(
+      ~variables=
+        Mutations.AddPrinterMutation.makeVariables(
+          ~firstName,
+          ~lastName,
+          ~email,
+          ~phoneNumber,
+          ~printerCount,
+          (),
+        ),
+      (),
+    )
+    |> Js.Promise.then_(
+         fun
+         | _ => Js.Promise.resolve(Js.log("ok")),
+       )
+    |> ignore;
   };
 
   MaterialUi.(
     <form autoComplete="off" style=formStyle onSubmit=handleSubmit>
       <FormInput
-        value=firstName
+        value={`String(firstName)}
         onChange=setFirstName
         id="firstName"
         label={"Nom"->React.string}
       />
-      <FormInput onChange=setLastName value=lastName id="lastName" label={"Prenom"->React.string} />
-      <FormInput onChange=setEmail value=email id="email" label={"Email"->React.string} />
+      <FormInput
+        onChange=setLastName
+        value={`String(lastName)}
+        id="lastName"
+        label={"Prenom"->React.string}
+      />
+      <FormInput
+        onChange=setEmail
+        value={`String(email)}
+        type_="email"
+        id="email"
+        label={"Email"->React.string}
+      />
       <FormInput
         onChange=setPhoneNumber
-        value=phoneNumber
+        value={`String(phoneNumber)}
         id="phoneNumber"
         label={"Telephone"->React.string}
         type_="phone"
       />
       <FormInput
         onChange=setNbPrinters
-        value=nbPrinters
+        value={`Int(printerCount)}
         id="nbPrinters"
         label={"Nombre d'imprimantes"->React.string}
         type_="number"
