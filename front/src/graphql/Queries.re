@@ -45,6 +45,10 @@ module GetOrdersListQuery = [%graphql
       order {
         id
         count
+        createdAt
+        printedCount
+        deliveryCount
+        pendingPrintCount
         customer {
           id
           firstName
