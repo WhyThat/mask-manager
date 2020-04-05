@@ -5,7 +5,11 @@ let preventDefault = event => ReactEventRe.Synthetic.preventDefault(event);
 
 [@react.component]
 let make = (~target="_self", ~onSubmit) => {
-  let (name, setName) = React.useState(() => "");
+  let (firstName, setFirstName) = React.useState(() => "");
+  let (lastName, setLastName) = React.useState(() => "");
+  let (email, setEmail) = React.useState(() => "");
+  let (phoneNumber, setPhoneNumber) = React.useState(() => 0);
+  let (nbPrinters, setNbPrinters) = React.useState(() => 0);
 
   let handleSubmit = evt => {
     preventDefault(evt);
@@ -15,7 +19,12 @@ let make = (~target="_self", ~onSubmit) => {
 
   MaterialUi.(
     <form autoComplete="off" style=formStyle onSubmit=handleSubmit>
-      <FormInput id="firstName" label={"Nom"->React.string} />
+      <FormInput
+        value=firstName
+        onChange=setFirstName
+        id="firstName"
+        label={"Nom"->React.string}
+      />
       <FormInput id="lastName" label={"Prenom"->React.string} />
       <FormInput id="email" label={"Email"->React.string} />
       <FormInput
