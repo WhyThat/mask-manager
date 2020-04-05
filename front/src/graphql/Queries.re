@@ -61,11 +61,13 @@ module GetOrdersListQuery = [%graphql
 
 let useOrdersListQuery = () => useQuery(GetOrdersListQuery.definition);
 
-module GetPrinterPrintingsListQuery = [%graphql
+module GetPrinterDetailsQuery = [%graphql
   {|
-    query GetPrintings($id: uuid!) {
+    query GetPrinterDetails($id: uuid!) {
       printer_by_pk(id: $id) {
         id
+        firstName
+        lastName
         printings {
           id
           count
@@ -76,7 +78,15 @@ module GetPrinterPrintingsListQuery = [%graphql
   |}
 ];
 
-let usePrintingsListQuery = () => useQuery(GetPrinterPrintingsListQuery.definition);
+let usePrinterDetailsQuery = printerId =>
+  switch (printerId) {
+  | Some(id) =>
+    useQuery(
+      ~variables=GetPrinterDetailsQuery.makeVariables(~id=Js.Json.string(id), ()),
+      GetPrinterDetailsQuery.definition,
+    )
+  | None => useQuery(~skip=true, GetPrinterDetailsQuery.definition)
+  };
 
 module GetPrintingDetailsQuery = [%graphql
   {|
@@ -92,7 +102,11 @@ module GetPrintingDetailsQuery = [%graphql
   |}
 ];
 
-let usePrintingDetailsQuery = id => useQuery(~variables=GetPrintingDetailsQuery.makeVariables(~id, ()), GetPrintingDetailsQuery.definition);
+let usePrintingDetailsQuery = id =>
+  useQuery(
+    ~variables=GetPrintingDetailsQuery.makeVariables(~id, ()),
+    GetPrintingDetailsQuery.definition,
+  );
 
 module GetOrderDetailsQuery = [%graphql
   {|
@@ -104,4 +118,8 @@ module GetOrderDetailsQuery = [%graphql
   |}
 ];
 
-let useOrderDetailsQuery = id => useQuery(~variables=GetOrderDetailsQuery.makeVariables(~id, ()), GetOrderDetailsQuery.definition);
+let useOrderDetailsQuery = id =>
+  useQuery(
+    ~variables=GetOrderDetailsQuery.makeVariables(~id, ()),
+    GetOrderDetailsQuery.definition,
+  );

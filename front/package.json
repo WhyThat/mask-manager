@@ -33,7 +33,6 @@
     "@baransu/graphql_ppx_re": "^0.7.1",
     "bs-platform": "^7.2.2",
     "bsb-js": "^1.1.7",
-    "get-graphql-schema": "^2.1.2",
     "graphql-cli": "^3.0.14",
     "graphql_ppx": "^0.2.8",
     "parcel-bundler": "^1.12.4"

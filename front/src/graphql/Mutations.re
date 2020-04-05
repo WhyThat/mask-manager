@@ -38,14 +38,14 @@ module AddCustomerMutation = [%graphql
       $lastName: String!,
       $email: String!,
       $phoneNumber: String!,
-      $type: String!
+      $customerType: String!
     ) {
       insert_customer(objects: {
         firstName: $firstName,
         lastName: $lastName,
         email: $email,
         phoneNumber: $phoneNumber,
-        type: $type,
+        type: $customerType,
       }) {
         returning {
           id

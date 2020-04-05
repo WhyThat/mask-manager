@@ -22,12 +22,10 @@
     "reason-react",
     "reason-apollo",
     "reason-apollo-hooks",
-    "@jsiebern/bs-material-ui",
-    "re-formality"
+    "@jsiebern/bs-material-ui"
   ],
   "ppx-flags": [
-    "@baransu/graphql_ppx_re/ppx",
-    "re-formality/ppx"
+    "@baransu/graphql_ppx_re/ppx"
   ],
   "refmt": 3
 }
