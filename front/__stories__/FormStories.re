@@ -11,7 +11,7 @@ let registerCustomer = () => {
 let registerPrinter = () => {
   <ApolloHooks.Provider client=Client.instance>
     <div style={ReactDOMRe.Style.make(~width="300px", ())}>
-      <PrinterForm />
+      <PrinterForm title="printer Form" />
     </div>
   </ApolloHooks.Provider>;
 };
