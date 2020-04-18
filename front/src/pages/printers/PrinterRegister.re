@@ -15,7 +15,9 @@ let make = () => {
       </Grid>
       <Grid item=true md=V3 />
       <Grid item=true md=V3 />
-      <Grid item=true md=V6> <PrinterLoginForm title={j| Je possède déjà un compte |j} /> </Grid>
+      <Grid item=true md=V6>
+        <PrinterLoginForm title={j| Je possède déjà un compte |j} />
+      </Grid>
       <Grid item=true md=V3 />
     </Grid>
   );

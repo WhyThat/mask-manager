@@ -1,5 +1,3 @@
-let t = "";
-
 [@bs.val] external document: Js.t({..}) = "document";
 
 let makeContainer = () => {
@@ -10,7 +8,4 @@ let makeContainer = () => {
   container;
 };
 
-ReactDOMRe.render(
-  <Root />,
-  makeContainer(),
-);
+ReactDOMRe.render(<Root />, makeContainer());
